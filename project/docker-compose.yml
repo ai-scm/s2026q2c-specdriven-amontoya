@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  grimorio-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: grimorio_container
+    ports:
+      - "3000:3000"
+    volumes:
+      - grimorio-db-vol:/data
+    restart: unless-stopped
+
+volumes:
+  grimorio-db-vol:
